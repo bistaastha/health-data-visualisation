@@ -1,0 +1,47 @@
+"Indicator","Facility Type","Total No. of Facilities #","Facilities reporting nil performance - Numbers*","Details of Maximum and Minimum Performing facilities - Performance","Details of Maximum and Minimum Performing facilities - Value Reported","Details of Maximum and Minimum Performing facilities - Sub-district","Details of Maximum and Minimum Performing facilities - Facility"
+Deliveries conducted at facility,DH,2,1,Maximum,44,Bhimtal,B.D.Pandey Female Hospital
+Deliveries conducted at facility,DH,2,1,Minimum,44,Bhimtal,B.D.Pandey Female Hospital
+Deliveries conducted at facility,SDH,4,2,Maximum,338,Haldwani,Female Hospital Haldwani
+Deliveries conducted at facility,SDH,4,2,Minimum,108,Ramnagar,Combined Hospital Ramnagar
+Deliveries conducted at facility,CHC,8,0,Maximum,55,Betalghat,Garampani
+Deliveries conducted at facility,CHC,8,0,Minimum,2,Bhimtal,Bhowali
+Deliveries conducted at facility,PHC,19,15,Maximum,24,Haldwani,PHC Motahaldu
+Deliveries conducted at facility,PHC,19,15,Minimum,6,Ramnagar,Bailparav
+Deliveries conducted at facility,SC,137,136,Maximum,9,Ramnagar,Maldhan Chaur
+Deliveries conducted at facility,SC,137,136,Minimum,9,Ramnagar,Maldhan Chaur
+C -Section deliveries at facility,DH,2,1,Maximum,8,Bhimtal,B.D.Pandey Female Hospital
+C -Section deliveries at facility,DH,2,1,Minimum,8,Bhimtal,B.D.Pandey Female Hospital
+C -Section deliveries at facility,SDH,4,2,Maximum,80,Haldwani,Female Hospital Haldwani
+C -Section deliveries at facility,SDH,4,2,Minimum,1,Ramnagar,Combined Hospital Ramnagar
+IPD Attendance,DH,2,1,Maximum,144,Bhimtal,B.D.Pandey Female Hospital
+IPD Attendance,DH,2,1,Minimum,144,Bhimtal,B.D.Pandey Female Hospital
+IPD Attendance,SDH,4,0,Maximum,1040,Haldwani,Base Hospital Haldwani
+IPD Attendance,SDH,4,0,Minimum,24,Bhimtal,G.B.Pant Hospital Nainital
+IPD Attendance,CHC,8,1,Maximum,83,Betalghat,Garampani
+IPD Attendance,CHC,8,1,Minimum,7,Betalghat,Betalghat
+IPD Attendance,PHC,19,17,Maximum,50,Okhalkanda,Okhalkanda
+IPD Attendance,PHC,19,17,Minimum,1,Ramnagar,Bailparav
+OPD attendance (All),DH,2,1,Maximum,2462,Bhimtal,B.D.Pandey Female Hospital
+OPD attendance (All),DH,2,1,Minimum,2462,Bhimtal,B.D.Pandey Female Hospital
+OPD attendance (All),SDH,4,0,Maximum,31638,Haldwani,Base Hospital Haldwani
+OPD attendance (All),SDH,4,0,Minimum,381,Bhimtal,G.B.Pant Hospital Nainital
+OPD attendance (All),CHC,8,0,Maximum,2551,Betalghat,Garampani
+OPD attendance (All),CHC,8,0,Minimum,352,Ramgarh,Ramgarh CHC
+OPD attendance (All),PHC,19,0,Maximum,2247,Haldwani,PHC Lalkuan
+OPD attendance (All),PHC,19,0,Minimum,67,Betalghat,PHC Uchakot
+OPD attendance (All),SC,137,47,Maximum,340,Haldwani,Pandey Newar
+OPD attendance (All),SC,137,47,Minimum,5,Betalghat,Malli Sethi
+OPD attendance (All),SC,137,47,Minimum,5,Dhari,Paharpani
+OPD attendance (All),SC,137,47,Minimum,5,Kotabhag,Amgarhi
+Operation major (General and spinal anaesthesia),DH,2,1,Maximum,21,Bhimtal,B.D.Pandey Female Hospital
+Operation major (General and spinal anaesthesia),DH,2,1,Minimum,21,Bhimtal,B.D.Pandey Female Hospital
+Operation major (General and spinal anaesthesia),SDH,4,0,Maximum,538,Haldwani,Base Hospital Haldwani
+Operation major (General and spinal anaesthesia),SDH,4,0,Minimum,8,Bhimtal,G.B.Pant Hospital Nainital
+Operation major (General and spinal anaesthesia),CHC,8,7,Maximum,11,Betalghat,Garampani
+Operation major (General and spinal anaesthesia),CHC,8,7,Minimum,11,Betalghat,Garampani
+Operation minor (No or local anaesthesia),DH,2,1,Maximum,44,Bhimtal,B.D.Pandey Female Hospital
+Operation minor (No or local anaesthesia),DH,2,1,Minimum,44,Bhimtal,B.D.Pandey Female Hospital
+Operation minor (No or local anaesthesia),SDH,4,0,Maximum,334,Haldwani,Base Hospital Haldwani
+Operation minor (No or local anaesthesia),SDH,4,0,Minimum,21,Bhimtal,G.B.Pant Hospital Nainital
+Operation minor (No or local anaesthesia),CHC,8,7,Maximum,9,Betalghat,Garampani
+Operation minor (No or local anaesthesia),CHC,8,7,Minimum,9,Betalghat,Garampani

@@ -11,3 +11,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.chart-alignment {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.chart {
+  flex: 25%;
+  padding:20px;
+  max-width: 10vw;
+}
+
+@media screen and (max-width: 992px) {
+  .chart {
+    flex: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .chart-alignment {
+    flex-direction: column;
+  }
+}
