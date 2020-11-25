@@ -3,19 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import * as serviceWorker from './serviceWorker';
 import Navbar from './common/navbar';
-import 'bootstrap/dist/css/bootstrap.css';
 import MinMaxPieChart from './charts/minMaxPieChart';
 import MinMaxBarChart from './charts/minMaxBarChart';
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap/dist/js/bootstrap.js';
+import IndexPage from './pages/indexPage.js';
 
 ReactDOM.render(
   <>
-  <Navbar/>
-  <div className="chart-alignment">
-  <MinMaxPieChart className="pie-chart chart"/>
-  <MinMaxBarChart className="bar-chart chart"/>
-  <MinMaxPieChart className="pie-chart chart"/>
-  <MinMaxBarChart className="bar-chart chart"/>
-  </div>
+  <IndexPage />
   </>,
   document.getElementById('root')
   
