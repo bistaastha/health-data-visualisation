@@ -1,41 +1,70 @@
 import React, { Component } from 'react';
 import Chart from 'chart.js';
 import './chart-styles.css';
+import {csv} from "d3-fetch";
 
 
 class MinMaxBarChart extends Component {
-    componentDidMount() {
+    constructor(props) {
+        super(props);
+        this.state = this.props;
+      }
 
+
+    componentDidMount() {
+    let totalFacilityCount = [];
+    let nilFacilityCount = [];
+    let indicatorDistinct = [];
+    csv(`/data/${this.state.cityName}_${this.state.monthName}_15_16.csv`).then(function(data) {
+        let indicatorsAll = data.map((element) => element["Indicator"]);
+        let totalFacilities = data.map((element) => +element["Total No. of Facilities #"]);
+        let totalNilFacilities =  data.map((element) => +element["Facilities reporting nil performance - Numbers*"]);
+        let current = "";
+        for(let i = 0, c = 0; i < indicatorsAll.length; i++)
+        {
+            if(indicatorsAll[i] != current)
+            {
+                if (!(current == ""))
+                {
+                    c++;
+                }
+                indicatorDistinct.push(indicatorsAll[i]);
+                totalFacilityCount.push(totalFacilities[i]);
+                nilFacilityCount.push(totalNilFacilities[i]);
+            }
+            else {
+                totalFacilityCount[c] += totalFacilities[i];
+
+                nilFacilityCount[c] += totalNilFacilities[i];
+            }
+
+            current = indicatorsAll[i];
+        }
+        console.log(data);
+        console.log(indicatorDistinct);
+        console.log(totalFacilityCount);
+
+        console.log(nilFacilityCount);
+        console.log(totalFacilities);
+
+      });
         this.chart = new Chart(this.barChart, {
         type: 'bar',
-        data: {
-            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-            datasets: [{
-                label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
+        data:{
+        labels: indicatorDistinct,
+        datasets: [{
+           label: "Total facilities",
+           backgroundColor: "green",
+           data: totalFacilityCount
+        }, {
+           label: "Nil performing facilities",
+           backgroundColor: "red",
+           data: nilFacilityCount
+        }],
     
         options: {
             title: {
-                text: 'Pie Chart',
+                text: 'Number of facilities per indicator',
                 display: true,
                 fontSize: 16,
                 position: 'top',
@@ -43,13 +72,34 @@ class MinMaxBarChart extends Component {
             maintainAspectRatio: true,
             responsive: true
             }
-        });
+        }
+    });
+    this.chart.update();
+}
+
+
+
+
+    randomRGBA() {
+        let o = Math.round, r = Math.random, s = 255;
+        return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
     }
+
+    colourArrayGenerator(num) {
+        let c = [];
+        while(num > 0)
+        {
+            c.push(this.randomRGBA());
+            num--;
+        }
+        return c;
+    }
+    
 
     render() {
         return (
             <canvas
-            className="chart-canvas-common"
+            className="chart-canvas-common bar-chart"
             ref={r => {
                 this.barChart = r;
             }}

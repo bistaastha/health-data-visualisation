@@ -2,13 +2,15 @@ import React, { Component } from "react";
 import Chart from "chart.js";
 import Papa from "papaparse";
 import {csv} from "d3-fetch";
+import { data } from "jquery";
 
 class MinMaxPieChart extends Component {
 
   componentDidMount() {
 
-    csv("/data/nainital_jan_15_16.csv").then(function(data) {
-        console.log(data);
+    csv(`/data/${this.props.cityName}_${this.props.monthName}_15_16.csv`).then(function(data) {
+      
+        var data = data[0];
       });
     console.log("In function");
     this.chart = new Chart(this.pieChart, {

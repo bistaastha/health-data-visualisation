@@ -20,7 +20,6 @@ code {
 .chart {
   flex: 25%;
   padding:20px;
-  max-width: 10vw;
 }
 
 @media screen and (max-width: 992px) {

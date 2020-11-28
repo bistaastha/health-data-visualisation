@@ -1,30 +1,36 @@
-import React, { Component } from 'react';
-let cityName = 'nainital';
-let monthName = 'jan';
+import React, { Component } from "react";
+import MinMaxBarChart from "./../charts/minMaxBarChart";
+import MinMaxPieChart from "./../charts/minMaxPieChart";
 
 
 class IndexPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      cityName: "nainital",
+      monthName: "feb"
+    };
+  }
 
-    componentDidMount(){
-        console.log(monthName);
+  componentDidMount() {
+    console.log(this.state.monthName);
+    console.log(this.state.cityName);
+  }
+  cityNameHandler(cname) {
+    this.setState({ cityName: cname });
+    console.log(this.state);
+  }
 
-        console.log(cityName);
-    }
-    cityNameHandler(cname){
-        cityName = cname;
-        console.log(cityName);
-    }
+  monthNameHandler(mname) {
+    this.setState({ monthName: mname });
+    console.log(this.state);
+  }
 
-    monthNameHandler(mname){
-        monthName = mname;
-        console.log(monthName);
-    }
-
-    render() {
-        return(
-        <>
+  render() {
+    return (
+      <>
         <nav className="navbar navbar-expand-lg navbar-light nav__formatting">
-          <h1 className="navbar__brand">healthViz</h1>
+          <h1 className="navbar__brand">healthDataViz</h1>
           <div className="row top-buffer ml-auto">
             <div className="col">
               <div className="dropdown">
@@ -41,12 +47,42 @@ class IndexPage extends Component {
                   className="dropdown-menu"
                   aria-labelledby="dropdownMenuButton"
                 >
-                  <button className="dropdown-item" onClick={() => this.monthNameHandler('all')}>All months</button>
-                  <button className="dropdown-item" onClick={() => this.monthNameHandler('jan')}>January</button>
-                  <button className="dropdown-item" onClick={() => this.monthNameHandler('feb')}>February</button>
-                  <button className="dropdown-item" onClick={() => this.monthNameHandler('march')}>March</button>
-                  <button className="dropdown-item" onClick={() => this.monthNameHandler('sep')}>September</button>
-                  <button className="dropdown-item" onClick={() => this.monthNameHandler('nov')}>November</button>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.monthNameHandler("all")}
+                  >
+                    All months
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.monthNameHandler("jan")}
+                  >
+                    January
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.monthNameHandler("feb")}
+                  >
+                    February
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.monthNameHandler("march")}
+                  >
+                    March
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.monthNameHandler("sep")}
+                  >
+                    September
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.monthNameHandler("nov")}
+                  >
+                    November
+                  </button>
                 </div>
               </div>
             </div>
@@ -68,18 +104,28 @@ class IndexPage extends Component {
                   className="dropdown-menu"
                   aria-labelledby="dropdownMenuButton"
                 >
-                  <button className="dropdown-item" onClick={() => this.cityNameHandler('nainital')}>Nainital</button>
-                  <button className="dropdown-item" onClick={() => this.cityNameHandler('haridwar')}>Haridwar</button>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.cityNameHandler("nainital")}
+                  >
+                    Nainital
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.cityNameHandler("haridwar")}
+                  >
+                    Haridwar
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-
         </nav>
-
-        
-      </>)
-    }
+        <MinMaxBarChart cityName={this.state.cityName} monthName={this.state.monthName} />
+        <MinMaxPieChart cityName={this.state.cityName} monthName={this.state.monthName} />
+      </>
+    );
+  }
 }
 //The charts will be added here
 export default IndexPage;
