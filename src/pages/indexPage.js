@@ -1,29 +1,31 @@
 import React, { Component } from "react";
-import MinMaxBarChart from "./../charts/minMaxBarChart";
 import MinMaxPieChart from "./../charts/minMaxPieChart";
-
-
+import StackedMinMaxBarChart from "./../charts/stackedMinMaxBarChart";
+import MinMaxBarChart from "./../charts/minMaxBarChart";
+import "./../index.css";
+let cityName = "nainital";
+let monthName = "jan";
 class IndexPage extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       cityName: "nainital",
       monthName: "feb"
     };
   }
 
-  componentDidMount() {
-    console.log(this.state.monthName);
-    console.log(this.state.cityName);
-  }
-  cityNameHandler(cname) {
-    this.setState({ cityName: cname });
-    console.log(this.state);
-  }
+  //Include data fetching here
 
-  monthNameHandler(mname) {
-    this.setState({ monthName: mname });
-    console.log(this.state);
+
+  componentDidMount() {
+    console.log("running");
+  }
+  nameHandler(mname, cname) {
+    this.setState( {
+      cityName:cname, 
+      monthName:mname
+    })
   }
 
   render() {
@@ -49,37 +51,37 @@ class IndexPage extends Component {
                 >
                   <button
                     className="dropdown-item"
-                    onClick={() => this.monthNameHandler("all")}
+                    onClick={() => this.nameHandler("all")}
                   >
                     All months
                   </button>
                   <button
                     className="dropdown-item"
-                    onClick={() => this.monthNameHandler("jan")}
+                    onClick={() => this.nameHandler("jan", this.state.cityName)}
                   >
                     January
                   </button>
                   <button
                     className="dropdown-item"
-                    onClick={() => this.monthNameHandler("feb")}
+                    onClick={() => this.nameHandler("feb", this.state.cityName)}
                   >
                     February
                   </button>
                   <button
                     className="dropdown-item"
-                    onClick={() => this.monthNameHandler("march")}
+                    onClick={() => this.nameHandler("march", this.state.cityName)}
                   >
                     March
                   </button>
                   <button
                     className="dropdown-item"
-                    onClick={() => this.monthNameHandler("sep")}
+                    onClick={() => this.nameHandler("sep", this.state.cityName)}
                   >
                     September
                   </button>
                   <button
                     className="dropdown-item"
-                    onClick={() => this.monthNameHandler("nov")}
+                    onClick={() => this.nameHandler("nov", this.state.cityName)}
                   >
                     November
                   </button>
@@ -106,13 +108,13 @@ class IndexPage extends Component {
                 >
                   <button
                     className="dropdown-item"
-                    onClick={() => this.cityNameHandler("nainital")}
+                    onClick={() => this.nameHandler(this.state.monthName, "nainital")}
                   >
                     Nainital
                   </button>
                   <button
                     className="dropdown-item"
-                    onClick={() => this.cityNameHandler("haridwar")}
+                    onClick={() => this.nameHandler(this.state.monthName, "haridwar")}
                   >
                     Haridwar
                   </button>
@@ -121,8 +123,11 @@ class IndexPage extends Component {
             </div>
           </div>
         </nav>
-        <MinMaxBarChart cityName={this.state.cityName} monthName={this.state.monthName} />
-        <MinMaxPieChart cityName={this.state.cityName} monthName={this.state.monthName} />
+        <div className="chart">
+        <MinMaxBarChart cityName={this.state.cityName} monthName={this.state.monthName}/>
+        <MinMaxPieChart cityName={this.state.cityName} monthName={this.state.monthName}/>
+        </div>
+        <StackedMinMaxBarChart cityName={this.state.cityName} monthName={this.state.monthName}/>
       </>
     );
   }

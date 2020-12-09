@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import Chart from "chart.js";
-import fetchData from "./../common/fetchData"
+import fetchData from "./../common/fetchData";
 
-class MinMaxPieChart extends Component {
-
+class StackedMinMaxBarChart extends Component {
   constructor(props) {
     super(props);
     this.state = this.props;
@@ -11,51 +10,54 @@ class MinMaxPieChart extends Component {
 
   async arrangeData() {
 
-    let facilities = [];
+    let subDistrict = [];
     let minMaxCounter = [];
     let data = await fetchData(this.props);
     //console.log(data.keys);
     
 
     data.forEach(element => {
-        facilities.push(element["Facility"]);
+        subDistrict.push(element["Sub-district"]);
     });
 
     //Find total minimum and maximum counts for each sub district
 
-    console.log(facilities);
+    console.log(subDistrict);
 
-    facilities = [...new Set(facilities)];
-    console.log(facilities);
+    subDistrict = [...new Set(subDistrict)];
+    console.log(subDistrict);
 
-    minMaxCounter = Array(2).fill().map(() => Array(facilities.length).fill(0));
+    minMaxCounter = Array(2).fill().map(() => Array(subDistrict.length).fill(0));
+    let sum = 0;
 
     console.log(minMaxCounter);
 
     data.forEach((element) => {
-      for(let i = 0; i < facilities.length; i++)
+      for(let i = 0; i < subDistrict.length; i++)
       {
-        if (facilities[i] == element["Facility"])
+        if (subDistrict[i] == element["Sub-district"])
         {
           if (element["Performance"] == "Maximum")
           {
-            minMaxCounter[0][i] += 1;
+            minMaxCounter[0][i] += parseInt(element["Value Reported"], 10);
+            sum += parseInt(element["Value Reported"], 10);
+            console.log(element["Value Reported"]);
           }
           else if (element["Performance"] == "Minimum")
           {
-            minMaxCounter[1][i] += 1;
+            minMaxCounter[1][i] += parseInt(element["Value Reported"], 10);
           }
         }
       }
     });
-     this.loadChart(facilities, minMaxCounter);
+     this.loadChart(subDistrict, minMaxCounter);
     
   }
   componentDidUpdate() {
     this.arrangeData();
   }
-loadChart(l, data) {
- /* var options = {
+loadChart(labels, data) {
+  var options = {
     layout: {
       padding: {
         top: 5,
@@ -94,7 +96,7 @@ loadChart(l, data) {
     },
   };
 
-  this.chart = new Chart(this.pieChart, {
+  this.chart = new Chart(this.stackedChart, {
     type: "horizontalBar",
     data: {
       labels: labels,
@@ -123,64 +125,26 @@ loadChart(l, data) {
   maintainAspectRatio: true,
   responsive: true
   },
-  });*/
-  
-  this.chart = new Chart(this.pieChart, {
-          type: 'doughnut',
-          data: {
-              labels: l,
-              datasets: [{
-                  label: '',
-                  data: data[0],
-                  backgroundColor: this.colourArrayGenerator(l.length),
-                  borderWidth: 1
-              }]
-          },
-          options: {
-            title: {
-              text: 'Maximum performance per facility',
-              display: true,
-              fontSize: 16,
-              position: 'top',
-          },
-          maintainAspectRatio: true,
-          responsive: true
-          }
-      });
+  });
 
 }
-randomRGBA() {
-  let o = Math.round, r = Math.random, s = 255;
-  return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + r().toFixed(1) + ')';
-}
 
-colourArrayGenerator(num) {
-  let c = [];
-  while(num > 0)
-  {
-      c.push(this.randomRGBA());
-      num--;
-  }
-  return c;
-}
   componentDidMount() {
     //age group gets location
     //male data total mx
     //female data total min
     this.arrangeData();
-
-    console.log("in pie")
    }
 
   render() {
     return (
       <canvas
-        className="chart-canvas-common pie-chart"
+        
         ref={(r) => {
-          this.pieChart = r;
+          this.stackedChart = r;
         }}
       />
     );
   }
 }
-export default MinMaxPieChart;
+export default StackedMinMaxBarChart;

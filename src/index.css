@@ -14,7 +14,7 @@ code {
 
 .chart-alignment {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .chart {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Chart from 'chart.js';
 import './chart-styles.css';
 import {csv} from "d3-fetch";
+import fetchData from '../common/fetchData';
 
 
 class MinMaxBarChart extends Component {
@@ -10,16 +11,51 @@ class MinMaxBarChart extends Component {
         this.state = this.props;
       }
 
-
+    componentDidUpdate() {
+        this.arrangeData();
+    }
     componentDidMount() {
+        this.arrangeData();
+}
+
+loadChart(tfc, nfc, id) {
+    this.chart = new Chart(this.barChart, {
+        type: 'bar',
+        data:{
+        labels: id,
+        datasets: [{
+           label: "Total facilities",
+           backgroundColor: "green",
+           data: tfc
+        }, {
+           label: "Nil performing facilities",
+           backgroundColor: "red",
+           data: nfc
+        }],
+    
+        options: {
+            title: {
+                text: 'Number of facilities per indicator',
+                display: true,
+                fontSize: 16,
+                position: 'top',
+            },
+            maintainAspectRatio: true,
+            responsive: true
+            }
+        }
+    });
+}
+
+async arrangeData() {
     let totalFacilityCount = [];
     let nilFacilityCount = [];
     let indicatorDistinct = [];
-    csv(`/data/${this.state.cityName}_${this.state.monthName}_15_16.csv`).then(function(data) {
-        let indicatorsAll = data.map((element) => element["Indicator"]);
-        let totalFacilities = data.map((element) => +element["Total No. of Facilities #"]);
-        let totalNilFacilities =  data.map((element) => +element["Facilities reporting nil performance - Numbers*"]);
-        let current = "";
+    let data = await fetchData(this.props);
+    let indicatorsAll = data.map((element) => element["Indicator"]);
+    let totalFacilities = data.map((element) => +element["Total No. of Facilities #"]);
+    let totalNilFacilities =  data.map((element) => +element["Facilities reporting nil performance - Numbers*"]);
+    let current = "";
         for(let i = 0, c = 0; i < indicatorsAll.length; i++)
         {
             if(indicatorsAll[i] != current)
@@ -47,36 +83,8 @@ class MinMaxBarChart extends Component {
         console.log(nilFacilityCount);
         console.log(totalFacilities);
 
-      });
-        this.chart = new Chart(this.barChart, {
-        type: 'bar',
-        data:{
-        labels: indicatorDistinct,
-        datasets: [{
-           label: "Total facilities",
-           backgroundColor: "green",
-           data: totalFacilityCount
-        }, {
-           label: "Nil performing facilities",
-           backgroundColor: "red",
-           data: nilFacilityCount
-        }],
-    
-        options: {
-            title: {
-                text: 'Number of facilities per indicator',
-                display: true,
-                fontSize: 16,
-                position: 'top',
-            },
-            maintainAspectRatio: true,
-            responsive: true
-            }
-        }
-    });
-    this.chart.update();
+      this.loadChart(totalFacilityCount, nilFacilityCount, indicatorDistinct);
 }
-
 
 
 
@@ -98,12 +106,14 @@ class MinMaxBarChart extends Component {
 
     render() {
         return (
+            <div>
             <canvas
             className="chart-canvas-common bar-chart"
             ref={r => {
                 this.barChart = r;
             }}
             />
+            </div>
         )
     }
 }
