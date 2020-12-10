@@ -3,8 +3,6 @@ import MinMaxPieChart from "./../charts/minMaxPieChart";
 import StackedMinMaxBarChart from "./../charts/stackedMinMaxBarChart";
 import MinMaxBarChart from "./../charts/minMaxBarChart";
 import "./../index.css";
-let cityName = "nainital";
-let monthName = "jan";
 class IndexPage extends Component {
   constructor(props) {
     super(props);
@@ -43,7 +41,7 @@ class IndexPage extends Component {
                   data-toggle="dropdown"
                   aria-haspopup="true"
                 >
-                  Month selection
+                  Select region and month
                 </button>
                 <div
                   className="dropdown-menu"
@@ -51,80 +49,103 @@ class IndexPage extends Component {
                 >
                   <button
                     className="dropdown-item"
-                    onClick={() => this.nameHandler("all")}
+                    onClick={() => this.nameHandler("jan", "nainital")}
                   >
-                    All months
+                    Nainital-January
                   </button>
                   <button
                     className="dropdown-item"
-                    onClick={() => this.nameHandler("jan", this.state.cityName)}
+                    onClick={() => this.nameHandler("feb", "nainital")}
                   >
-                    January
+                    Nainital-February
                   </button>
                   <button
                     className="dropdown-item"
-                    onClick={() => this.nameHandler("feb", this.state.cityName)}
+                    onClick={() => this.nameHandler("march", "nainital")}
                   >
-                    February
+                    Nainital-March
                   </button>
                   <button
                     className="dropdown-item"
-                    onClick={() => this.nameHandler("march", this.state.cityName)}
+                    onClick={() => this.nameHandler("sep", "nainital")}
                   >
-                    March
+                    Nainital-September
                   </button>
                   <button
                     className="dropdown-item"
-                    onClick={() => this.nameHandler("sep", this.state.cityName)}
+                    onClick={() => this.nameHandler("nov", "nainital")}
                   >
-                    September
+                    Nainital-November
                   </button>
                   <button
                     className="dropdown-item"
-                    onClick={() => this.nameHandler("nov", this.state.cityName)}
+                    onClick={() => this.nameHandler("jan", "haridwar")}
                   >
-                    November
+                    Haridwar-January
                   </button>
-                </div>
-              </div>
-            </div>
-          </div>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.nameHandler("feb","haridwar")}
+                  >
+                    Haridwar-February
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.nameHandler("march", "haridwar")}
+                  >
+                    Haridwar-March
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.nameHandler("may", "haridwar")}
+                  >
+                    Haridwar-May
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.nameHandler("jun", "haridwar")}
+                  >
+                    Haridwar-June
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.nameHandler("july", "haridwar")}
+                  >
+                    Haridwar-July
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.nameHandler("aug", "haridwar")}
+                  >
+                    Haridwar-August
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.nameHandler("march", "haridwar")}
+                  >
+                  Haridwar-September
+                  </button>
+                  <button
+                    className="dropdown-item"
+                    onClick={() => this.nameHandler("nov", "haridwar")}
+                  >
 
-          <div className="row top-buffer ml-auto">
-            <div className="col">
-              <div className="dropdown">
-                <button
-                  className="btn btn-success dropdown-toggle"
-                  type="button"
-                  id="dropdownMenuButton"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                >
-                  City selection
-                </button>
-                <div
-                  className="dropdown-menu"
-                  aria-labelledby="dropdownMenuButton"
-                >
-                  <button
-                    className="dropdown-item"
-                    onClick={() => this.nameHandler(this.state.monthName, "nainital")}
-                  >
-                    Nainital
+Haridwar-November
                   </button>
                   <button
                     className="dropdown-item"
-                    onClick={() => this.nameHandler(this.state.monthName, "haridwar")}
+                    onClick={() => this.nameHandler("dec", "haridwar")}
                   >
-                    Haridwar
+                  Haridwar-December
                   </button>
                 </div>
               </div>
             </div>
           </div>
         </nav>
-        <div className="chart">
-        <MinMaxBarChart cityName={this.state.cityName} monthName={this.state.monthName}/>
+    <h1 className="h1-style">{`Visualisations for ${this.state.cityName}-${this.state.monthName} for the year 2015-16`}</h1>
+        <div>
+        <MinMaxBarChart cityName={this.state.cityName} monthName={this.state.monthName} />
         <MinMaxPieChart cityName={this.state.cityName} monthName={this.state.monthName}/>
         </div>
         <StackedMinMaxBarChart cityName={this.state.cityName} monthName={this.state.monthName}/>

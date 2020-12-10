@@ -96,6 +96,9 @@ loadChart(labels, data) {
     },
   };
 
+  for (let i = 0; i < data[0].length; i++) {
+    data[0][i] = -Math.abs(data[0][i]);
+}
   this.chart = new Chart(this.stackedChart, {
     type: "horizontalBar",
     data: {
@@ -139,7 +142,7 @@ loadChart(labels, data) {
   render() {
     return (
       <canvas
-        
+        className="chart-canvas-common"
         ref={(r) => {
           this.stackedChart = r;
         }}

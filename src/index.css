@@ -33,3 +33,7 @@ code {
     flex-direction: column;
   }
 }
+.h1-style {
+  margin-left: 20vw;
+  margin-right: 20vw;
+}

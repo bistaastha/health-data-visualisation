@@ -1,0 +1,48 @@
+"Indicator","Facility Type","Total No. of Facilities #","Facilities reporting nil performance - Numbers*","Performance","Value Reported","Sub-district","Facility"
+Deliveries conducted at facility,DH,2,1,Maximum,389,Bahadrabad,CR Women Govt Hospital
+Deliveries conducted at facility,DH,2,1,Minimum,389,Bahadrabad,CR Women Govt Hospital
+Deliveries conducted at facility,SDH,2,1,Maximum,259,Roorkee,"JNSM Govt.Combined Hospital,Roorkee"
+Deliveries conducted at facility,SDH,2,1,Minimum,259,Roorkee,"JNSM Govt.Combined Hospital,Roorkee"
+Deliveries conducted at facility,CHC,6,0,Maximum,166,Narsan,"CHC,Manglore"
+Deliveries conducted at facility,CHC,6,0,Minimum,14,Khanpur,"CHC,Khanpur"
+Deliveries conducted at facility,PHC,40,34,Maximum,45,Bahadrabad,Jawalapur APHC
+Deliveries conducted at facility,PHC,40,34,Minimum,1,Roorkee,Imlikhera PHC
+Deliveries conducted at facility,SC,160,154,Maximum,12,Laksar,Bhogpur
+Deliveries conducted at facility,SC,160,154,Minimum,1,Bahadrabad,Garh
+Deliveries conducted at facility,SC,160,154,Minimum,1,Laksar,Bhikkampur
+Deliveries conducted at facility,SC,160,154,Minimum,1,Laksar,Sultanpur
+C -Section deliveries at facility,DH,2,1,Maximum,41,Bahadrabad,CR Women Govt Hospital
+C -Section deliveries at facility,DH,2,1,Minimum,41,Bahadrabad,CR Women Govt Hospital
+C -Section deliveries at facility,SDH,2,1,Maximum,1,Roorkee,"JNSM Govt.Combined Hospital,Roorkee"
+C -Section deliveries at facility,SDH,2,1,Minimum,1,Roorkee,"JNSM Govt.Combined Hospital,Roorkee"
+IPD Attendance,DH,2,0,Maximum,1162,Bahadrabad,CR Women Govt Hospital
+IPD Attendance,DH,2,0,Minimum,482,Bahadrabad,HMG Hospital Hardwar
+IPD Attendance,SDH,2,1,Maximum,930,Roorkee,"JNSM Govt.Combined Hospital,Roorkee"
+IPD Attendance,SDH,2,1,Minimum,930,Roorkee,"JNSM Govt.Combined Hospital,Roorkee"
+IPD Attendance,CHC,6,0,Maximum,180,Bhagwanpur,"CHC,Bhagwanpur"
+IPD Attendance,CHC,6,0,Minimum,28,Narsan,"CHC,Narsan"
+IPD Attendance,PHC,40,26,Maximum,45,Bahadrabad,Jawalapur APHC
+IPD Attendance,PHC,40,26,Minimum,1,Bahadrabad,Tibdi
+IPD Attendance,PHC,40,26,Minimum,1,Bahadrabad,Sukhinadi UHC
+IPD Attendance,PHC,40,26,Minimum,1,Narsan,"APHC,Dandera"
+OPD attendance (All),DH,2,0,Maximum,9750,Bahadrabad,HMG Hospital Hardwar
+OPD attendance (All),DH,2,0,Minimum,6025,Bahadrabad,CR Women Govt Hospital
+OPD attendance (All),SDH,2,0,Maximum,9258,Roorkee,"JNSM Govt.Combined Hospital,Roorkee"
+OPD attendance (All),SDH,2,0,Minimum,4527,Bahadrabad,Govt Mela Hospital Hardwar
+OPD attendance (All),CHC,6,0,Maximum,3764,Laksar,"CHC,Laksar"
+OPD attendance (All),CHC,6,0,Minimum,830,Khanpur,"CHC,Khanpur"
+OPD attendance (All),PHC,40,0,Maximum,2713,Bahadrabad,Jawalapur APHC
+OPD attendance (All),PHC,40,0,Minimum,34,Laksar,"APHC,Sultanpur Aadampur"
+OPD attendance (All),SC,160,0,Maximum,695,Laksar,Jaitpur
+OPD attendance (All),SC,160,0,Minimum,9,Roorkee,Bhangedi
+OPD attendance (All),SC,160,0,Minimum,9,Roorkee,Mehwad Kalan
+Operation major (General and spinal anaesthesia),DH,2,0,Maximum,41,Bahadrabad,CR Women Govt Hospital
+Operation major (General and spinal anaesthesia),DH,2,0,Minimum,32,Bahadrabad,HMG Hospital Hardwar
+Operation major (General and spinal anaesthesia),SDH,2,1,Maximum,29,Roorkee,"JNSM Govt.Combined Hospital,Roorkee"
+Operation major (General and spinal anaesthesia),SDH,2,1,Minimum,29,Roorkee,"JNSM Govt.Combined Hospital,Roorkee"
+Operation minor (No or local anaesthesia),DH,2,0,Maximum,33,Bahadrabad,CR Women Govt Hospital
+Operation minor (No or local anaesthesia),DH,2,0,Minimum,31,Bahadrabad,HMG Hospital Hardwar
+Operation minor (No or local anaesthesia),SDH,2,0,Maximum,12,Roorkee,"JNSM Govt.Combined Hospital,Roorkee"
+Operation minor (No or local anaesthesia),SDH,2,0,Minimum,2,Bahadrabad,Govt Mela Hospital Hardwar
+Operation minor (No or local anaesthesia),CHC,6,5,Maximum,7,Bahadrabad,"CHC,Bahadrabad"
+Operation minor (No or local anaesthesia),CHC,6,5,Minimum,7,Bahadrabad,"CHC,Bahadrabad"
